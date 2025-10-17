@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import r2_score, mean_squared_error
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 
 
 drive.mount('/content/drive')
@@ -32,4 +32,6 @@ model.fit(X_train_scaled, y_train_scaled)
 predictions_reshaped = model.predict(x_scale.transform(X_test)).reshape(-1, 1)
 y_pred = y_scale.inverse_transform(predictions_reshaped)
 print(y_pred)
-print(r2_score(y_test, y_pred.flatten()))
+print(f'r2_score : {r2_score(y_test, y_pred.flatten())}')
+print(f'mse : {mean_squared_error(y_test, y_pred.flatten())}')
+print(f'mae : {mean_absolute_error(y_test, y_pred.flatten())}')
