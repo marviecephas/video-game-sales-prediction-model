@@ -1,4 +1,3 @@
-from google.colab import drive
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
@@ -6,8 +5,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 
 
-drive.mount('/content/drive')
-file_path = '/content/drive/MyDrive/vgsales.csv'
+file_path = 'vgsales.csv'
 
 df = pd.read_csv(file_path)
 
